@@ -87,6 +87,12 @@ linkWraps.forEach(linkWrap => {
         ease: 'power4.inOut', // Easing option for Carrot Span animation
       });
 
+      // Remove the "invert" filter from white-desktop-nav-link elements
+      const whiteDesktopNavLinks = document.querySelectorAll('.white-desktop-nav-link');
+      whiteDesktopNavLinks.forEach(link => {
+        link.style.filter = 'none';
+      });
+
       if (currentOpenLink === linkWrap) {
         // Reset the current open link if it's the same link that was clicked
         currentOpenLink = null;
@@ -111,7 +117,11 @@ linkWraps.forEach(linkWrap => {
           duration: 0.4,
           ease: 'power4.inOut', // Easing option for Desktop Nav Link animation
           onComplete: resetOpacity, // Call the function to reset the stagger animation
-
+        });
+        // Remove the "invert" filter from white-desktop-nav-link elements
+        const whiteDesktopNavLinks = document.querySelectorAll('.white-desktop-nav-link');
+        whiteDesktopNavLinks.forEach(link => {
+          link.style.filter = 'none';
         });
       }
     } else {
@@ -137,6 +147,13 @@ linkWraps.forEach(linkWrap => {
           duration: 0.4,
           ease: 'power4.inOut',
         });
+
+        // Apply the "invert" filter to white-desktop-nav-link elements
+        const whiteDesktopNavLinks = document.querySelectorAll('.white-desktop-nav-link');
+        whiteDesktopNavLinks.forEach(link => {
+          link.style.filter = 'invert(100%)';
+        });
+
       }
 
       linkWrap.classList.add('open');
